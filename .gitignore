@@ -1,4 +1,8 @@
 node_modules
 *.log
-build
+jjjbuild
 .vscode
+lib/*
+!lib/.gitkeep
+db/*
+!db/.gitkeep
