@@ -4,12 +4,12 @@ import ast
 def fileRead(fileName):
     f = open(fileName)
     out = readCont(f)
-    # print(out)
+    # print("reading..")
     raw = open(fileName, "w")
     # raw.write(str(out))
     for item in out:
         raw.write("%s" % item)
-        print(item)
+        # print(item)
     raw.close()
     # print("reading...")
     # f = open(fileName)
@@ -19,10 +19,12 @@ def readCont(f):
     contents = []
     for cont in f:
         contents.append(cont)
-
+    # print("starting...")
     if len(contents)<=1:
+        # print("Error..:", contents)
         return contents
     else:
+        print("Rank...")
         return rank(contents)
 
 def takeThird(elem):
@@ -34,9 +36,13 @@ def convert_string_list_to_list(elem):
 def rank(contents):
     print("original data")
     contents = list(map(convert_string_list_to_list, contents))
-    s = sorted(contents, key=lambda x: x[2],reverse=True)
+    # print("Content:", contents[0])
+    # new = [(video, name, float(x)) for video,name,x in contents]
+    # print("New Contents:", new[0])
+    # new.sort(key=operator.itemgetter(1))
+    s = sorted(contents, key=lambda x: float(x[2]),reverse=True)
     print("after sorting")
-    print(s)
+    # print(s)
     return s
     # contents.sort(key=lambda x: x[2],reverse=True)
 
@@ -58,7 +64,7 @@ for subdir, dirs, mod_files in os.walk(path):
     # print(files[0])
     for files in mod_files:
         if files.endswith(".txt"):
-            print("File:",files)
+            # print("File:",files)
     # print(len(mod_files))
             fileRead(os.path.join(path,files))
             # break
