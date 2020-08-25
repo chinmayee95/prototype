@@ -753,7 +753,7 @@ db/*
 !db/.gitkeep
 data/**/*
 !data/.gitkeep
-#database/*
+database/*
 !database/.gitkeep
 
 __temp/
